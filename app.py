@@ -96,14 +96,12 @@ def _do_predictions(texts, melodies, duration, progress=False, **gen_kwargs):
         outputs = MODEL.generate(texts, progress=progress)
 
     outputs = outputs.detach().cpu().float()
-    out_files = []
     for output in outputs:
         with NamedTemporaryFile("wb", suffix=".wav", delete=False) as file:
             audio_write(
                 file.name, output, MODEL.sample_rate, strategy="loudness",
                 loudness_headroom_db=16, loudness_compressor=True, add_suffix=False)
-            out_files.append(pool.submit(make_waveform, file.name))
-    res = [out_file.result() for out_file in out_files]
+    res = [file.name]
     print("batch finished", len(texts), time.time() - be)
     return res
 
@@ -169,7 +167,7 @@ def ui_full(launch_kwargs):
                     temperature = gr.Number(label="Temperature", value=1.0, interactive=True)
                     cfg_coef = gr.Number(label="Classifier Free Guidance", value=3.0, interactive=True)
             with gr.Column():
-                output = gr.Video(label="Generated Music")
+                output = gr.Audio(label="Generated Music")
         submit.click(predict_full, inputs=[model, text, melody, duration, topk, topp, temperature, cfg_coef], outputs=[output])
         gr.Examples(
             fn=predict_full,
