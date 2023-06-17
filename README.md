@@ -13,7 +13,7 @@ all 4 codebooks in one pass. By introducing a small delay between the codebooks,
 them in parallel, thus having only 50 auto-regressive steps per second of audio.
 Check out our [sample page][musicgen_samples] or test the available demo!
 
-<a target="_blank" href="https://colab.research.google.com/drive/1-Xe9NCdIs2sCUbiSmwHXozK6AAhMm7_i?usp=sharing">
+<a target="_blank" href="https://colab.research.google.com/drive/1UmqQDZzWEfLelYefX0kn8xjyIKl90NfB?usp=sharing">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 <a target="_blank" href="https://huggingface.co/spaces/facebook/MusicGen">
@@ -39,7 +39,7 @@ pip install -e .  # or if you cloned the repo locally
 ## Usage
 We offer a number of way to interact with MusicGen:
 1. A demo is also available on the [`facebook/MusicGen`  HuggingFace Space](https://huggingface.co/spaces/facebook/MusicGen) (huge thanks to all the HF team for their support).
-2. You can run the extended demo on a Colab: [colab notebook](https://colab.research.google.com/drive/1fxGqfg96RBUvGxZ1XXN07s3DthrKUl4-?usp=sharing).
+2. You can run the extended demo on a Colab: [colab notebook](https://colab.research.google.com/drive/1UmqQDZzWEfLelYefX0kn8xjyIKl90NfB?usp=sharing).
 3. You can use the gradio demo locally by running `python app.py`.
 4. You can play with MusicGen by running the jupyter notebook at [`demo.ipynb`](./demo.ipynb) locally (if you have a GPU).
 5. Finally, checkout [@camenduru Colab page](https://github.com/camenduru/MusicGen-colab) which is regularly
